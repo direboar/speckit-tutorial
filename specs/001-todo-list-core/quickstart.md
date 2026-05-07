@@ -46,6 +46,16 @@ npm run test:unit
 
 ## E2E テスト
 
+初回は Playwright のブラウザを導入する。
+
+```bash
+npx playwright install chromium
+```
+
+Linux 環境では、追加の共有ライブラリが不足しているとブラウザ起動に失敗することがある。
+
+その後、E2E テストを実行する。
+
 ```bash
 npm run test:e2e
 ```
@@ -64,4 +74,3 @@ npm run test:e2e
 - キーボードだけで主要操作に到達できる
 - フォーカスが視認できる
 - 完了状態やエラーが色だけに依存していない
-
