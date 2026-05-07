@@ -4,6 +4,7 @@
 **Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
 
 **Note**: This template is filled in by the `/speckit-plan` command. See `.specify/templates/plan-template.md` for the execution workflow.
+**Language**: This generated document MUST be written in Japanese.
 
 ## Summary
 
@@ -31,7 +32,17 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- UI scope preserves a simple and intuitive task workflow; any added complexity
+  is justified in `Complexity Tracking`.
+- Data persistence approach is browser local storage, with reload-safe behavior
+  and a defined migration path if stored data shape changes.
+- Technical approach uses vanilla JavaScript and browser-native APIs; any
+  dependency beyond narrow utilities is explicitly justified.
+- UX is responsive across mobile and desktop viewports relevant to the feature.
+- Accessibility coverage includes keyboard reachability, focus visibility,
+  semantic controls, and non-color-only status communication.
+- The plan content itself is written in Japanese, except for unavoidable
+  code, API, or library identifiers.
 
 ## Project Structure
 

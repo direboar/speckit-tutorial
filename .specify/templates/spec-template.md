@@ -4,6 +4,7 @@
 **Created**: [DATE]  
 **Status**: Draft  
 **Input**: User description: "$ARGUMENTS"
+**Language**: This generated document MUST be written in Japanese.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -90,6 +91,21 @@
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
 
+### Constitution Constraints *(mandatory)*
+
+- **CC-001**: Explain how the feature keeps the UI simple and intuitive for the
+  primary task flow.
+- **CC-002**: State what data is persisted in local storage and how reload
+  continuity is preserved.
+- **CC-003**: Confirm the implementation uses vanilla JavaScript and browser
+  APIs, or document the exact exception requiring approval.
+- **CC-004**: Describe the responsive behavior required for mobile and desktop
+  use.
+- **CC-005**: Describe accessibility expectations for keyboard access, focus
+  visibility, semantics, and status communication.
+- **CC-006**: Confirm the specification text is written in Japanese, except for
+  unavoidable code, API, or library identifiers.
+
 *Example of marking unclear requirements:*
 
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
@@ -126,3 +142,4 @@
 - [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
 - [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
 - [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
+- [Assumption about offline behavior or local-storage availability]

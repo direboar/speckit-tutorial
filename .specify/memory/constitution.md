@@ -1,50 +1,101 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 1.0.0 -> 1.1.0
+- Modified principles:
+  - I. Simple and Intuitive UI -> I. シンプルで直感的な UI
+  - II. Local-First Data Storage -> II. ローカルファーストなデータ保存
+  - III. Vanilla JavaScript Only -> III. バニラ JavaScript の厳守
+  - IV. Responsive by Default -> IV. レスポンシブデザインの標準化
+  - V. Accessibility as a Release Gate -> V. アクセシビリティをリリースゲートにする
+- Added sections:
+  - VI. 仕様書は日本語を正とする
+- Removed sections:
+  - None
+- Templates requiring updates:
+  - ✅ updated: .specify/templates/plan-template.md
+  - ✅ updated: .specify/templates/spec-template.md
+  - ✅ updated: .specify/templates/tasks-template.md
+  - ✅ verified: .specify/templates/constitution-template.md
+  - ✅ verified: AGENTS.md
+  - ⚠ pending: .specify/templates/commands/*.md (directory does not exist in this repository)
+- Follow-up TODOs:
+  - None
+-->
+# ToDo アプリ憲章
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. シンプルで直感的な UI
+すべてのユーザー向け変更は、迷いの少ないタスク操作フローを維持しなければならない。
+タスクの追加、完了、編集、絞り込み、削除といった主要操作は、説明文に依存せず
+直感的に見つけられなければならない。新しい UI 要素は、操作の速さまたは理解の
+しやすさを改善する場合にのみ導入できる。理由: この製品は、低い認知負荷で
+タスク管理できることが価値の中心だからである。
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. ローカルファーストなデータ保存
+タスクデータ、ユーザー設定、表示状態は、将来の改訂で別方式が明示的に承認される
+まで、ブラウザの `localStorage` に保存しなければならない。機能はページ再読み込み後
+およびネットワーク非接続時でも継続して動作しなければならない。保存データ形式を
+変更する場合は、後方互換を保つか、利用者に安全な移行手順を提供しなければならない。
+理由: 初期スコープはバックエンドを持たない単体ブラウザアプリだからである。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. バニラ JavaScript の厳守
+アプリケーションロジックはバニラ JavaScript で実装しなければならない。React、
+Vue、Angular、Svelte などのフレームワークや同等の抽象化は、憲章改訂なしに導入しては
+ならない。小規模な補助ライブラリは、ブラウザ標準 API では合理的に解けない限定的な
+問題に対してのみ許可され、その必要性を実装計画で説明しなければならない。理由:
+小規模なクライアントアプリとして、コードの透明性と軽量性を維持するためである。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. レスポンシブデザインの標準化
+すべての機能は、代表的なモバイルおよびデスクトップの画面幅で、主要タスクフローに
+横スクロールを発生させず利用できなければならない。レイアウト、余白、操作部品の
+サイズは、狭い画面では省スペースに、広い画面では一覧性を損なわない形で適応させる。
+リリース前にはレスポンシブ挙動を検証しなければならない。理由: タスク管理は複数の
+端末から反復利用されるため、レスポンシブ対応は追加価値ではなく前提条件だからである。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. アクセシビリティをリリースゲートにする
+すべての操作要素はキーボードで到達可能であり、視認できるフォーカス状態と
+アクセシブルな名前を持たなければならない。完了状態、優先度、エラーを色だけで
+伝えてはならない。意味を持つ UI はカスタムウィジェットよりもセマンティック HTML を
+優先し、主要フローのコントラスト問題はリリース前に解消しなければならない。理由:
+高頻度で使うアプリであり、多様な入力手段と視覚条件に対して操作可能である必要がある。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. 仕様書は日本語を正とする
+仕様書、計画書、タスク一覧、およびそれに準ずるプロジェクト生成ドキュメントは
+日本語で作成しなければならない。英語の技術用語や API 名は必要に応じて併記してよいが、
+要求、判断基準、作業指示の主文は日本語で明記しなければならない。理由: 本プロジェクト
+の運用ルールとして `AGENTS.md` に定義されており、仕様解釈のぶれを抑える必要がある。
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Technical Constraints
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- 対象成果物はブラウザベースの ToDo アプリであること。
+- データ保存は現行スコープではブラウザの `localStorage` を使用すること。
+- 実装技術は HTML、CSS、バニラ JavaScript に限定すること。
+- バックエンドサービス、アカウント管理、常時ネットワーク接続を必須条件にしないこと。
+- 仕様書、計画書、タスク一覧などの生成ドキュメントは日本語で記述すること。
+- これらの制約から逸脱する提案は、実装計画に明記し、憲章改訂によって承認を得ること。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+
+- すべての仕様書は、UI の単純性、`localStorage` 永続化、レスポンシブ挙動、
+  アクセシビリティ、日本語ドキュメント要件をどう満たすかを記載しなければならない。
+- すべての実装計画は、設計開始前と実装開始前の 2 回、明示的な Constitution Check を
+  含めなければならない。
+- タスク一覧には、保存データ、レスポンシブ挙動、アクセシビリティ、日本語ドキュメントの
+  検証作業を、該当する変更ごとに含めなければならない。
+- レビューでは、不必要な抽象化、UI フレームワークの導入、オフライン動作の弱体化、
+  または日本語仕様書要件の逸脱を、改訂なしに受け入れてはならない。
+- リリース判定では、キーボード操作、画面幅ごとの表示、再読み込み後の状態保持を
+  手動確認しなければならない。
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+この憲章は ToDo アプリプロジェクトにおける他のローカル慣行より優先される。改訂には、
+(1) 変更理由の文書化、(2) 依存テンプレートまたは運用文書の同期更新、(3) 本ファイルへの
+セマンティックバージョン変更の記録が必要である。バージョニング方針は次の通りとする:
+原則や統治の後方非互換変更は MAJOR、新しい原則追加または義務の実質拡張は MINOR、
+義務内容を変えない明確化は PATCH とする。適合性レビューは、仕様策定、計画、実装、
+レビューの各段階で必須とし、例外がある場合は作業開始前に対象計画の
+`Complexity Tracking` に根拠を明記しなければならない。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.1.0 | **Ratified**: 2026-05-07 | **Last Amended**: 2026-05-07
