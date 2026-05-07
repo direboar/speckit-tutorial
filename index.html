@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoリスト</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="app-panel" aria-labelledby="app-title">
+        <header class="app-header">
+          <p class="eyebrow">Local First Task Flow</p>
+          <h1 id="app-title">ToDoリスト</h1>
+          <p class="app-description">
+            追加、完了切替、削除、絞り込みを 1 画面で扱えるシンプルなタスク管理。
+          </p>
+        </header>
+
+        <form class="todo-form" data-testid="todo-form" novalidate>
+          <label class="field-label" for="todo-input">新しいタスク</label>
+          <div class="form-row">
+            <input
+              id="todo-input"
+              name="title"
+              type="text"
+              maxlength="120"
+              autocomplete="off"
+              placeholder="例: 仕様書の見直し"
+              aria-describedby="todo-error"
+            />
+            <button type="submit" class="primary-button">追加</button>
+          </div>
+          <p id="todo-error" class="form-error" role="alert" hidden></p>
+        </form>
+
+        <section class="toolbar" aria-label="表示フィルタ">
+          <div
+            class="filter-group"
+            role="group"
+            aria-label="タスク表示フィルタ"
+            data-testid="filter-group"
+          >
+            <button type="button" class="filter-button" data-filter="all">すべて</button>
+            <button type="button" class="filter-button" data-filter="active">未完了</button>
+            <button type="button" class="filter-button" data-filter="completed">完了済み</button>
+          </div>
+          <p class="toolbar-status" data-testid="remaining-count" aria-live="polite"></p>
+        </section>
+
+        <section class="todo-section" aria-labelledby="list-title">
+          <div class="section-heading">
+            <h2 id="list-title">タスク一覧</h2>
+            <p class="section-subtitle">登録日時は `YYYY/MM/DD HH:SS` 形式で表示</p>
+          </div>
+          <p class="storage-error" role="status" data-testid="storage-error" hidden></p>
+          <ul class="todo-list" data-testid="todo-list" aria-live="polite"></ul>
+          <p class="empty-state" data-testid="empty-state" hidden></p>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
+

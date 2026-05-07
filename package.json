@@ -1,0 +1,19 @@
+{
+  "name": "todo-list-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ToDoリスト基本機能の実装",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "playwright": "^1.54.2",
+    "vitest": "^3.2.4"
+  }
+}
+
